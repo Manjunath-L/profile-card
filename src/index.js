@@ -1,17 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import './index.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+function App() {
+  return (
+    <div className="card">
+      <Avatar />
+      <div className="data">
+        <Intro />
+        <SkillList />
+      </div>
+    </div>
+  );
+}
+
+function Avatar() {
+  return (
+    <img className="avatar" src="./profile.jpeg" alt="profile" />
+  )
+}
+function Intro() {
+  return (
+    <div>
+      <h1>Manjunath L</h1>
+      <p>
+        full-stack web developer ,like reading books(self-help),explore new places(like temples),enjoye listening music
+      </p>
+    </div>
+  )
+}
+
+function SkillList(props) {
+  return (
+    <div className="skill-list">
+      <Skill skill="React js" emoji="💪" color='blue' />
+      <Skill skill="HTML-CSS" emoji="💪" color='orangered' />
+      <Skill skill="Svelte" emoji="😒" color='yellow' />
+      <Skill skill="Javascript" emoji="💪" color='orange' />
+    </div>
+  )
+}
+
+function Skill(props) {
+  return <div className="skill" style={{ backgroundColor: props.color }}>
+    <span>{props.skill}</span>
+    <span>{props.emoji}</span>
+  </div>
+}
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  </StrictMode>
+)
