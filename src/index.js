@@ -35,6 +35,12 @@ const skills = [
   }
 ];
 
+const emojis = {
+  "beginner": "🤓",
+  "intermediate": "👍",
+  "advanced": "💪"
+}
+
 
 function App() {
   return (
@@ -75,9 +81,7 @@ function SkillList(props) {
 function Skill({ skill, color, level }) {
   return <div className="skill" style={{ backgroundColor: color }}>
     <span>{skill}</span>
-    <span>{level === "beginner" && '🤓'}
-      {level === "intermediate" && "👍"}
-      {level === "advanced" && "💪"}
+    <span>{emojis[level]}
     </span>
   </div>
 }
